@@ -88,4 +88,5 @@ dev.off()
 ## Answer: Emissions from both gasoline and diesel vehicles have decreased 
 ## in Baltimore City during the period of study while in LA County diesel
 ## emissions have increased and so have total emissions from vehicles despite
-## the decrease for gasoline vehicles
+## the decrease for gasoline vehicles. In relative terms, the Baltimore decrease 
+## is greater than the LA increase

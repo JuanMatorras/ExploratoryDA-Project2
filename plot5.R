@@ -79,4 +79,5 @@ ggplot(vehiclesBalt, aes(x = factor(year), y = yearTotal, fill = SCC.Level.Two))
 # Closing off the device
 dev.off()
 
-## Answer: Emissions from both gasoline and diesel vehicles have decreased in Baltimore City during the period of study
+## Answer: Emissions from both gasoline and diesel vehicles have decreased 
+## in Baltimore City during the period of study, and so has the total
