@@ -85,4 +85,7 @@ ggplot(vehiBaltLA, aes(x = factor(year), y = yearTotal, fill = SCC.Level.Two)) +
 # Closing off the device
 dev.off()
 
-## Answer: Emissions from both gasoline and diesel vehicles have decreased in Baltimore City during the period of study
+## Answer: Emissions from both gasoline and diesel vehicles have decreased 
+## in Baltimore City during the period of study while in LA County diesel
+## emissions have increased and so have total emissions from vehicles despite
+## the decrease for gasoline vehicles
