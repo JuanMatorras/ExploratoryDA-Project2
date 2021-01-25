@@ -8,8 +8,8 @@
 # Reading the data from the source files
 # Files should be in the working directory
 # Due to file size it might take a few seconds. Patience ;-)
-NEI <- readRDS("summarySCC_PM25.rds")
-SCC <- readRDS("Source_Classification_Code.rds")
+if(!exists("NEI")){NEI <- readRDS("summarySCC_PM25.rds")}
+if(!exists("SCC")){SCC <- readRDS("Source_Classification_Code.rds")}
 
 # Getting a feel of the data
 head(NEI)
@@ -30,8 +30,9 @@ baltimoreYearType <- NEI %>% filter(fips == "24510") %>% group_by(type, year) %>
 
 # Cheking resulting data frame
 str(baltimoreYearType)
+# View(baltimoreYearType)
 
-# Overriding alphabetical ordering of type variable to suit as desired
+# Overriding alphabetical ordering of type variable to suit as desired for plotting
 baltimoreYearType$type <- factor(baltimoreYearType$type, 
                                  levels = c("POINT", "NONPOINT", 
                                             "ON-ROAD", "NON-ROAD"))
@@ -47,9 +48,9 @@ ggplot(baltimoreYearType, aes(x = factor(year), y = yearTotal, fill = type)) +
         theme_bw() + 
         geom_bar(stat = "identity") + 
         facet_grid(. ~ type) + 
-        labs(title = "Total Tons of Fine Particulate Matter (PM2.5) Emissions in Baltimore by Source Type", 
+        labs(title = "Total Tons of Fine Particulate Matter (PM2.5) Emissions 
+             in Baltimore City by Source Type during the 1999-2008 Period", 
              x = "Year", y = "Number of tons of PM2.5 emissions") +
-        theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
         theme(plot.title = element_text(hjust = 0.5)) +
         theme(plot.margin = unit(c(20, 20, 20, 20), "pt")) + 
         scale_y_continuous(labels=function(n){format(n, scientific=FALSE,

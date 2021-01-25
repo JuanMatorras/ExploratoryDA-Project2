@@ -5,8 +5,8 @@
 # Reading the data from the source files
 # Files should be in the working directory
 # Due to file size it might take a few seconds. Patience ;-)
-NEI <- readRDS("summarySCC_PM25.rds")
-SCC <- readRDS("Source_Classification_Code.rds")
+if(!exists("NEI")){NEI <- readRDS("summarySCC_PM25.rds")}
+if(!exists("SCC")){SCC <- readRDS("Source_Classification_Code.rds")}
 
 # Getting a feel of the data
 head(NEI)
@@ -36,7 +36,8 @@ par(mar = c(5, 5, 4, 3))
 plot(baltimoreTotals$year, baltimoreTotals$totalPM25, type = "l", lwd = 2,
      xlab = "Year", 
      ylab = "Number of tons of PM2.5 emissions", 
-     main = "Total Tons of Fine Particulate Matter (PM2.5) Emissions in Baltimore City (MD)")
+     main = "Total Tons of Fine Particulate Matter (PM2.5) Emissions
+     in Baltimore City (MD) during the 1999-2008 Period")
 # Closing off the device
 dev.off()
 
